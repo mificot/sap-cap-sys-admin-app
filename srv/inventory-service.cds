@@ -10,7 +10,7 @@ service InventoryService {
     @readonly
     entity AssignedHardware as SELECT from my.Hardware WHERE EXISTS assigned_to;
 
-    action assignHardware(hardware_ID: my.Hardware:ID, employee_ID: my.Employees:ID) returns Integer;
+    action assignHardware(hardware_ID: my.Hardware:ID, employee_ID: my.Employees:ID);
 
     event HardwareAssigned : {
         hardware_ID: my.Hardware:ID;

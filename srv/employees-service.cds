@@ -13,7 +13,7 @@ service EmployeesService @(path: '/registry') {
     @insertonly
     entity Employees as projection on my.Employees;
 
-    action assignRole(employee_ID: my.Employees:ID, role_ID: Roles:ID) returns Integer;
+    action assignRole(employee_ID: my.Employees:ID, role_ID: Roles:ID);
 
     event EmployeeRoleAssigned : {
         employee_ID: my.Employees:ID;
