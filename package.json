@@ -20,6 +20,9 @@
     "typescript": "^5.0.4"
   },
   "cds": {
+    "features": {
+      "assert_integrity": "db"
+    },
     "requires": {
       "db": {
         "kind": "sqlite",
