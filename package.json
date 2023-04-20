@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "dev": "cds-ts watch"
+    "dev": "cds-ts watch",
+    "deploy": "cds-ts deploy"
   },
   "keywords": [],
   "author": "",
@@ -17,5 +18,15 @@
   "devDependencies": {
     "@types/node": "^18.15.11",
     "typescript": "^5.0.4"
+  },
+  "cds": {
+    "requires": {
+      "db": {
+        "kind": "sqlite",
+        "credentials": {
+          "database": "database.db"
+        }
+      }
+    }
   }
 }
