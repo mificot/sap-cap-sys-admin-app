@@ -2,6 +2,7 @@ import { Worker } from 'node:worker_threads';
 import { join } from 'node:path';
 import * as cds from "@sap/cds";
 import type { Service } from "@sap/cds/apis/services";
+import { RequiredSoftwareInstallationPayload } from "./typings/required-software-installation-payload";
 
 const WORKER_PATH = join(__dirname, './install-worker.mjs');
 
@@ -28,7 +29,7 @@ export default async function createInstallRunnerService(service: Service) {
 
 
     InstallControllerService.on('RequiredSoftwareInstallation', async (event) => {
-        const { software_ID, hardware_ID, employee_ID } = event.data;
+        const { software_ID, hardware_ID, employee_ID } = event.data as RequiredSoftwareInstallationPayload;
         await installSoftware(software_ID, hardware_ID, employee_ID);
         await INSERT.into(Employee_Software).entries({
             software_ID,
