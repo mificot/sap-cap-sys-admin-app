@@ -14,9 +14,9 @@ entity Roles: managed {
 }
 
 @cds.autoexpose
-entity Employee_Roles {
-    employee: Association to Employees @assert.target;
-    role: Association to Roles @assert.target;
+entity Employee_Roles: managed {
+    employee: Association to Employees @assert.integrity;
+    role: Association to Roles @assert.integrity;
 }
 
 entity Hardware {
