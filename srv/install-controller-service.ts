@@ -39,7 +39,7 @@ export default async function createInstallControllerService(service: Service) {
 
     const emitSoftwareInstallationFor = async (employee_ID: number, hardware_ID: number, softwareToInstall: any[]) => {
         for (const { software_ID } of softwareToInstall) {
-            await service.emit('RequireSoftwareInstallation', {
+            await service.emit('RequiredSoftwareInstallation', {
                 employee_ID,
                 hardware_ID,
                 software_ID

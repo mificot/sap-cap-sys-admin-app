@@ -27,7 +27,7 @@ export default async function createInstallRunnerService(service: Service) {
     const { Employee_Software } = db.entities;
 
 
-    InstallControllerService.on('RequireSoftwareInstallation', async (event) => {
+    InstallControllerService.on('RequiredSoftwareInstallation', async (event) => {
         const { software_ID, hardware_ID, employee_ID } = event.data;
         await installSoftware(software_ID, hardware_ID, employee_ID);
         await INSERT.into(Employee_Software).entries({
